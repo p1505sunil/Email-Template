@@ -303,7 +303,7 @@ namespace DemoApp.Controllers
         }
 
         // GET: /Account/ConfirmEmail
-        [HttpGet]
+        [HttpGet] 
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
