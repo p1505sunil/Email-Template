@@ -118,7 +118,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // POST: /Manage/EnableTwoFactorAuthentication
+        // POST: /Manage/EnableTwoFactorAuthentication 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnableTwoFactorAuthentication()
@@ -134,7 +134,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // POST: /Manage/DisableTwoFactorAuthentication
+        // POST: /Manage/DisableTwoFactorAuthentication 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DisableTwoFactorAuthentication()
