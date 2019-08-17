@@ -334,7 +334,7 @@ namespace DemoApp.Controllers
 
         //
         // POST: /Account/ForgotPassword
-        [HttpPost]
+        [HttpPost] 
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
