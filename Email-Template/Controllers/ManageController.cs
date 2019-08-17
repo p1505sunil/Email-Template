@@ -150,7 +150,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // GET: /Manage/VerifyPhoneNumber
+        // GET: /Manage/VerifyPhoneNumber 
         [HttpGet]
         public async Task<IActionResult> VerifyPhoneNumber(string phoneNumber)
         {
@@ -190,7 +190,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // POST: /Manage/RemovePhoneNumber
+        // POST: /Manage/RemovePhoneNumber 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemovePhoneNumber()
