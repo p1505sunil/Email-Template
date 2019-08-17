@@ -209,7 +209,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // GET: /Manage/ChangePassword
+        // GET: /Manage/ChangePassword  
         [HttpGet]
         public IActionResult ChangePassword()
         {
@@ -217,7 +217,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // POST: /Manage/ChangePassword
+        // POST: /Manage/ChangePassword 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
@@ -243,7 +243,7 @@ namespace DemoApp.Controllers
         }
 
         //
-        // GET: /Manage/SetPassword
+        // GET: /Manage/SetPassword 
         [HttpGet]
         public IActionResult SetPassword()
         {
