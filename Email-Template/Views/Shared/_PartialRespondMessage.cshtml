@@ -1,0 +1,14 @@
+﻿
+
+@if (ViewData["MessageValue"] != null)
+{
+    if (ViewData["MessageValue"].ToString() == "0") //error message
+    {
+        <div class="alert alert-danger">@ViewData["Message"]</div>
+    }
+
+    if (ViewData["MessageValue"].ToString() == "1")
+    { //success message
+        <div class="alert alert-success">@ViewData["Message"]</div>
+    }
+}
