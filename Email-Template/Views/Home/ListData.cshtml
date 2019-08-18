@@ -1,0 +1,100 @@
+
+@{
+    ViewData["Title"] = "ListData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.rtl.min.css" />
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.silver.min.css" />
+<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.118/styles/kendo.mobile.all.min.css" />
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+
+<script src="http://kendo.cdn.telerik.com/2017.1.118/js/kendo.all.min.js"></script>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Test Data from API</div>
+    <div class="panel-body">
+        <div id="Grid"></div> <!--end of grid-->
+    </div> <!--end of panel-body-->
+</div> <!--end of panel-primary-->
+
+<script>
+    $(document).ready(function () {
+        $("#Grid").kendoGrid({
+            toolbar: ["excel"],
+            excel: {
+                fileName: "Demo Excel From Kendo.xlsx",
+                filterable: true,  //Allow Filtering
+                allPages: true 
+            },
+            dataSource: {
+                type: "json",
+                transport: {
+                    contentType: "application/json; charset=utf-8",
+                    type: "GET", // type: "GET","POST"
+                    dataType: "json", //dataType: "json","odata"
+                    read: "/api/StudentAPI/GetAllStudents",  //API URL
+                },
+                pageSize: 5,
+                schema: {
+                    model: {
+                        fields: {
+                            RegNo: {
+                                type: "string"
+                            },
+                            Name: {
+                                type: "string"
+                            },
+                            Address: {
+                                type: "string"
+                            },
+                            PhoneNo: {
+                                type: "string"
+                            },
+                            admissionDate: {
+                                type: "date"
+                            }
+                        }
+                    }
+                },
+            },
+            filterable: true, //Allow Filtering
+            sortable: true, //Allow Sorting of Columns
+            groupable: true, //Allow Grouping
+            columnMenu: true, //Show/Hide Columns
+            reorderable: true, //Allow Column Reordering
+            resizable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [{
+                field: "regNo",
+                title: "Regd No",
+                filterable: { multi: true, search: true } //Allow multi select Filter and Search 
+            }, {
+                field: "name",
+                title: "Student Name",
+                filterable: { multi: true, search: true } //Allow multi select Filter and Search
+            }, {
+                field: "address",
+                title: "Address",
+                filterable: { multi: true, search: true } //Allow multi select Filter and Search
+            }, {
+                field: "phoneNo",
+                title: "Phone No",
+                filterable: { multi: true, search: true } //Allow multi select Filter and Search
+            }, {
+                field: "admissionDate",
+                title: "Admission Date",
+                format: "{0:MM-dd-yyyy}", //Date time Formatting Eg: 03-27-2017
+                filterable: { multi: true, search: true } //Allow multi select Filter and Search
+            }]
+        });
+    });
+</script>
+
+
